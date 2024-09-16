@@ -1,14 +1,10 @@
 from discord.ext import commands
-import pandas as pd
-import random
-import numpy as np
 import discord
 import os
 from oauth2client.service_account import ServiceAccountCredentials
 import gspread
 import time
 import math
-from tabulate import tabulate
 
 scope = [
     "https://spreadsheets.google.com/feeds",
