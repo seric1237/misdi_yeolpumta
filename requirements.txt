@@ -1,0 +1,5 @@
+discord
+oauth2client
+gspread
+time
+math
