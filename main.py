@@ -12,7 +12,7 @@ scope = [
     "https://www.googleapis.com/auth/drive",
 ]
 
-key3_json_str = os.getenv('key3')
+key3_json_str = os.getenv('core')
 key3_data = json.loads(key3_json_str)
 credential = ServiceAccountCredentials.from_json_keyfile_dict(key3_data, scope)
 gc = gspread.authorize(credential)
@@ -38,7 +38,7 @@ async def 초기화(ctx):
                 "https://www.googleapis.com/auth/drive",
             ]
 
-            key3_json_str = os.getenv("key3")
+            key3_json_str = os.getenv("core")
             key3_data = json.loads(key3_json_str)
             credential = ServiceAccountCredentials.from_json_keyfile_dict(key3_data, scope)
             gc = gspread.authorize(credential)
@@ -70,7 +70,7 @@ async def 업데이트(ctx):
                 'https://www.googleapis.com/auth/drive'
             ]
 
-            key3_json_str = os.getenv("key3")
+            key3_json_str = os.getenv("core")
             key3_data = json.loads(key3_json_str)
             credential = ServiceAccountCredentials.from_json_keyfile_dict(key3_data, scope)
             gc = gspread.authorize(credential)
@@ -104,7 +104,7 @@ async def 부팅(ctx):
                 "https://www.googleapis.com/auth/drive",
             ]
 
-            key3_json_str = os.getenv("key3")
+            key3_json_str = os.getenv("core")
             key3_data = json.loads(key3_json_str)
             credential = ServiceAccountCredentials.from_json_keyfile_dict(key3_data, scope)
             gc = gspread.authorize(credential)
