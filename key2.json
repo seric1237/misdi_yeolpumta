@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "misdi-spreadsheet",
+  "private_key_id": "53993f1ec35c50c4dc5777eb3308d421b13e377a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDiDqfI5kHE2rGw\nhPXwFg37oUEFno/dtZPSa6LyTtXTwwUO6FcRInwvUC5MeVTaRRrXKr2n/zNRTsTA\nDVinxSkOCoaIqS9WbFcPTehrTWoxJaNietfvUezL/6EsUeYwz/m/6McqFMhsCH0O\nc5wuATfphiViaTvBbug65wWB18fOqltjTXqdsTLrbn8OfQRXyl/aoW0js5b8AuT8\nUD4ZY9YFR61Pwi61QI+dPpya5Q4NlRjWrtSoUOUocA5Oq8TEtUOwmRy0s9dpSn7C\nXQUeuZA5BxFQR8KWO+7VffIhqYUpoG4dMM24H/91xKs3zB72QzitJbCw/PegYwoL\nGAavD4MZAgMBAAECggEARxcYyOMwl7m2265UsZYd+54wlpXQ5IZv4GKdMdp9AEV6\nV7/VcbwIldB/XulhN+s3j6cPUb+94boFwefwk4I7cQD6YgviqSkVD+kOSIBl/uK5\nSQUc11RKRbU0eH2hCIS/JA0OZTt39BGPUnYlDYqwjK31H8e8VQ6N1chFQRoc6e6t\nt/sKotgcmbESOVKWnfWQT/7WCjejoFbuxX3Rx7rU/mETOt8oGdhw3KJNXGgXIbeS\nR3pNggfaX7cRdgYJVz/8Vg+9zr/+rzoTDy7nErrT1W958+rsWfFWWmUE7uhy0/Oe\n07ReCFqMh6P3HNsQDvZ7xNKwE9C7YO7mbjhWzcROaQKBgQD58bbA2WMLHKPvEptM\nmP9L1yhBxSmNXdv8YhcO7XsYu4eFZFFb+KfsVfDobM+ZCa0MjPOFGzTdZS3Dt3S0\nKqCzJSlwfAe9IUELXMiIk9HsJN8LwdCCCEaf6kYLpJlt2D2VFVbSFEZ1R2nEaxY5\nKKE1FcEdr9At2OxGceoO1A3XfwKBgQDniMg0MO5x6jJHtnZTQFf6+l3kYbkXQag5\nT1EEX7KftfAhnENy9Qf/QZmllrn39iKTl06Wq6xopzGunfp7e3uj+ISRFmRwiybC\n2gqPDf+7IQ7dMf3rQpctVdlu8r+hT918DeXvdVZ19QNMWEW/hVwfn0MgE+u8d8Qu\nO4O2DAGxZwKBgQCIt3bHtiE/CsOBGiRomafLzDzw/O/lq9mRC/ag67XRqYJPrLf0\nHud7lubXu+0yQOCvZMovnNol4BpQXCEyC78rPsCUDsQM6Au0M2RdkL3a9bArtjBf\ncDdxcawu4jIqq4XD7pA3CXAg5pcsIYdebKMBbozbuDefXHChd94Xjlaj8QKBgBBx\nKDZ8mxI/3V42WOTElvrduLk1L121berT9R7oZNjupKTeYfPR7sVztSOLNp2jPwVY\nI16TxmSQKvkJgvYt6LPWPCPJgUx0tUX1EfbiuZxiVpniqPOCARZZGF3Go1EjSMk8\ne22r2X367kcHpbxaDha4yp2GjKEPqEDYPRw6cgxVAoGBAPnJu20zHXTv6wod11l5\nWS/3/Sk1FPWclUyoBtuHDrOgs2r7tI/hq3zpYQB+ZfqC9uzjnKoFGo3mqp68MuaJ\nhFyEGHW00fAtAGteJ69zGGIntNhwKdkD9gRbAn9vGw8YILN+GpdosI/9Q1DjGYso\naWfAxn/wNavVC6yCaR5g/Qhn\n-----END PRIVATE KEY-----\n",
+  "client_email": "misdi-spreadsheet@misdi-spreadsheet.iam.gserviceaccount.com",
+  "client_id": "101848007046054312059",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/misdi-spreadsheet%40misdi-spreadsheet.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
