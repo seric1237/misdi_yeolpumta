@@ -11,8 +11,9 @@ scope = [
     "https://www.googleapis.com/auth/drive",
 ]
 
-json_key_path = "key2.json"  # JSON Key File Path
-credential = ServiceAccountCredentials.from_json_keyfile_name(json_key_path, scope)
+key3_json_str = os.getenv("key3")
+key3_data = json.loads(key3_json_str)
+credential = ServiceAccountCredentials.from_json_keyfile_dict(key3_data, scope)
 gc = gspread.authorize(credential)
 spreadsheet_key = os.getenv('key')
 doc = gc.open_by_key(spreadsheet_key)
@@ -36,8 +37,9 @@ async def 초기화(ctx):
                 "https://www.googleapis.com/auth/drive",
             ]
 
-            json_key_path = "key2.json"  # JSON Key File Path
-            credential = ServiceAccountCredentials.from_json_keyfile_name(json_key_path, scope)
+            key3_json_str = os.getenv("key3")
+            key3_data = json.loads(key3_json_str)
+            credential = ServiceAccountCredentials.from_json_keyfile_dict(key3_data, scope)
             gc = gspread.authorize(credential)
 
             spreadsheet_key = os.getenv('key')
@@ -67,8 +69,9 @@ async def 업데이트(ctx):
                 'https://www.googleapis.com/auth/drive'
             ]
 
-            json_key_path = "key2.json"  # JSON Key File Path
-            credential = ServiceAccountCredentials.from_json_keyfile_name(json_key_path, scope)
+            key3_json_str = os.getenv("key3")
+            key3_data = json.loads(key3_json_str)
+            credential = ServiceAccountCredentials.from_json_keyfile_dict(key3_data, scope)
             gc = gspread.authorize(credential)
 
             spreadsheet_key = os.getenv('key')
@@ -100,8 +103,9 @@ async def 부팅(ctx):
                 "https://www.googleapis.com/auth/drive",
             ]
 
-            json_key_path = "key2.json"  # JSON Key File Path
-            credential = ServiceAccountCredentials.from_json_keyfile_name(json_key_path, scope)
+            key3_json_str = os.getenv("key3")
+            key3_data = json.loads(key3_json_str)
+            credential = ServiceAccountCredentials.from_json_keyfile_dict(key3_data, scope)
             gc = gspread.authorize(credential)
 
             spreadsheet_key =os.getenv('key')
