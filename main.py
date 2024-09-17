@@ -11,7 +11,7 @@ scope = [
     "https://www.googleapis.com/auth/drive",
 ]
 
-json_key_path = "key.json"  # JSON Key File Path
+json_key_path = "key2.json"  # JSON Key File Path
 credential = ServiceAccountCredentials.from_json_keyfile_name(json_key_path, scope)
 gc = gspread.authorize(credential)
 spreadsheet_key = os.getenv('key')
@@ -36,7 +36,7 @@ async def 초기화(ctx):
                 "https://www.googleapis.com/auth/drive",
             ]
 
-            json_key_path = "key.json"  # JSON Key File Path
+            json_key_path = "key2.json"  # JSON Key File Path
             credential = ServiceAccountCredentials.from_json_keyfile_name(json_key_path, scope)
             gc = gspread.authorize(credential)
 
@@ -67,7 +67,7 @@ async def 업데이트(ctx):
                 'https://www.googleapis.com/auth/drive'
             ]
 
-            json_key_path = "key.json"  # JSON Key File Path
+            json_key_path = "key2.json"  # JSON Key File Path
             credential = ServiceAccountCredentials.from_json_keyfile_name(json_key_path, scope)
             gc = gspread.authorize(credential)
 
@@ -100,7 +100,7 @@ async def 부팅(ctx):
                 "https://www.googleapis.com/auth/drive",
             ]
 
-            json_key_path = "key.json"  # JSON Key File Path
+            json_key_path = "key2.json"  # JSON Key File Path
             credential = ServiceAccountCredentials.from_json_keyfile_name(json_key_path, scope)
             gc = gspread.authorize(credential)
 
