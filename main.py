@@ -12,11 +12,11 @@ scope = [
     "https://www.googleapis.com/auth/drive",
 ]
 
-key3_json_str = os.getenv('core')
+key3_json_str = os.environ.get("core")
 key3_data = json.loads(key3_json_str)
 credential = ServiceAccountCredentials.from_json_keyfile_dict(key3_data, scope)
 gc = gspread.authorize(credential)
-spreadsheet_key = os.getenv('key')
+spreadsheet_key = os.environ.get("key")
 doc = gc.open_by_key(spreadsheet_key)
 sheet = doc.worksheet("시트1")
 client = commands.Bot(command_prefix='!', intents=discord.Intents.all())
@@ -38,12 +38,12 @@ async def 초기화(ctx):
                 "https://www.googleapis.com/auth/drive",
             ]
 
-            key3_json_str = os.getenv("core")
+            key3_json_str = os.environ.get("core")
             key3_data = json.loads(key3_json_str)
             credential = ServiceAccountCredentials.from_json_keyfile_dict(key3_data, scope)
             gc = gspread.authorize(credential)
 
-            spreadsheet_key = os.getenv('key')
+            spreadsheet_key = os.environ.get("key")
             doc = gc.open_by_key(spreadsheet_key)
             global sheet
             sheet = doc.worksheet("시트1")
@@ -70,12 +70,12 @@ async def 업데이트(ctx):
                 'https://www.googleapis.com/auth/drive'
             ]
 
-            key3_json_str = os.getenv("core")
+            key3_json_str = os.environ.get("core")
             key3_data = json.loads(key3_json_str)
             credential = ServiceAccountCredentials.from_json_keyfile_dict(key3_data, scope)
             gc = gspread.authorize(credential)
 
-            spreadsheet_key = os.getenv('key')
+            spreadsheet_key = os.environ.get("key")
             doc = gc.open_by_key(spreadsheet_key)
             global sheet
             sheet = doc.worksheet("시트1")
@@ -104,12 +104,12 @@ async def 부팅(ctx):
                 "https://www.googleapis.com/auth/drive",
             ]
 
-            key3_json_str = os.getenv("core")
+            key3_json_str = os.environ.get("core")
             key3_data = json.loads(key3_json_str)
             credential = ServiceAccountCredentials.from_json_keyfile_dict(key3_data, scope)
             gc = gspread.authorize(credential)
 
-            spreadsheet_key =os.getenv('key')
+            spreadsheet_key =os.environ.get("key")
             doc = gc.open_by_key(spreadsheet_key)
             global sheet
             sheet = doc.worksheet("시트1")
@@ -401,4 +401,4 @@ async def 사용안내(ctx):
                    '7. 벌금은 주간 연습시간에서 20시간을 뺀 시간에 1000원을 곱하여 증감될 예정입니다. 즉 20시간 보다 적다면 벌금이 추가될 것이고 20시간보다 많다면 벌금이 줄어들 것입니다. 간단히 말해서 공연날까지 "평균" 20시간을 연습하셨다면 벌금을 안 내셔도 된다는 의미입니다.'
                    '다만 공연이 끝났을 때 벌금이 음수라고 해서 따로 상여금은 지급되지 않을 예정이니 참고해주시면 감사하겠습니다.```')
 
-client.run(os.getenv('token'))
+client.run(os.environ.get("token"))
