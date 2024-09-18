@@ -1,5 +1,5 @@
 discord
 oauth2client
 gspread
-Flask==1.1.2
+Flask
 Thread
