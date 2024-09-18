@@ -35,8 +35,6 @@ def keep_alive():
     t = Thread(target=run)
     t.start()
 
-keep_alive()
-
 @client.event
 async def on_ready():
     print('{} logged in.'.format(client))
@@ -415,5 +413,7 @@ async def 사용안내(ctx):
                    '6. 혹시나 자신의 연습시간 혹은 벌금에 문제가 있는 것 같다 싶으신 분들은 발견한 순간 바로 연락 부탁드립니다.\n\n'
                    '7. 벌금은 주간 연습시간에서 20시간을 뺀 시간에 1000원을 곱하여 증감될 예정입니다. 즉 20시간 보다 적다면 벌금이 추가될 것이고 20시간보다 많다면 벌금이 줄어들 것입니다. 간단히 말해서 공연날까지 "평균" 20시간을 연습하셨다면 벌금을 안 내셔도 된다는 의미입니다.'
                    '다만 공연이 끝났을 때 벌금이 음수라고 해서 따로 상여금은 지급되지 않을 예정이니 참고해주시면 감사하겠습니다.```')
+
+keep_alive()
 
 client.run(os.environ.get("token"))
