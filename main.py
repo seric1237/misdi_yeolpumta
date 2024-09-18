@@ -6,6 +6,8 @@ from oauth2client.service_account import ServiceAccountCredentials
 import gspread
 import time
 import math
+from flask import Flask
+from threading import Thread
 
 scope = [
     "https://spreadsheets.google.com/feeds",
@@ -20,7 +22,20 @@ spreadsheet_key = os.environ.get("key")
 doc = gc.open_by_key(spreadsheet_key)
 sheet = doc.worksheet("시트1")
 client = commands.Bot(command_prefix='!', intents=discord.Intents.all())
+app = Flask('')
 
+@app.route('/')
+def home():
+    return "Bot is running!"
+
+def run():
+    app.run(host='0.0.0.0', port=int(os.getenv("PORT", 8000)))
+
+def keep_alive():
+    t = Thread(target=run)
+    t.start()
+
+keep_alive()
 
 @client.event
 async def on_ready():
