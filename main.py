@@ -21,6 +21,18 @@ gc = gspread.authorize(credential)
 spreadsheet_key = os.environ.get("key")
 doc = gc.open_by_key(spreadsheet_key)
 sheet = doc.worksheet("시트1")
+global hoon_time_start
+hoon_time_start = 0
+global ghi_time_start
+ghi_time_start = 0
+global kyoung_time_start
+kyoung_time_start = 0
+global miin_time_start
+miin_time_start = 0
+global jin_time_start
+jin_time_start = 0
+global joon_time_start
+joon_time_start = 0
 client = commands.Bot(command_prefix='/', intents=discord.Intents.all())
 app = Flask('')
 
@@ -141,7 +153,7 @@ async def 부팅(ctx):
 @client.command()
 async def 시간추가(ctx):
     name = ctx.message.content[6:8]
-    time = ctx.message.content[9:11]
+    time = ctx.message.content[9:13]
     if name == '영훈':
         time_list[0] += int(time)
         sheet.update_cell(2, 1, time_list[0])
@@ -296,32 +308,32 @@ async def 연습정산(ctx):
 @client.command()
 async def 출근(ctx):
     name = ctx.message.content[4:6]
-    if name == '영훈':
+    if name == '영훈' and hoon_time_start == 0:
         global hoon_time_start
         hoon_time_start = time.time()
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
-    elif name == '민기':
+    elif name == '민기' and ghi_time_start == 0:
         global ghi_time_start
         ghi_time_start = time.time()
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
-    elif name == '재경':
+    elif name == '재경' and kyoung_time_start == 0:
         global kyoung_time_start
         kyoung_time_start = time.time()
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
-    elif name == '유민':
+    elif name == '유민' and miin_time_start == 0:
         global miin_time_start
         miin_time_start = time.time()
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
-    elif name == '서진':
+    elif name == '서진' and jin_time_start == 0:
         global jin_time_start
         jin_time_start = time.time()
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
-    elif name == '현준':
+    elif name == '현준' and joon_time_start == 0:
         global joon_time_start
         joon_time_start = time.time()
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     else:
-        await ctx.send('```존재하지 않는 사용자입니다.```')
+        await ctx.send('```존재하지 않는 사용자이거나 이미 출근한 사용자입니다.```')
 
 @client.command()
 async def 퇴근(ctx):
