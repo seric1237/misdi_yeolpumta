@@ -184,7 +184,7 @@ async def 시간추가(ctx):
 @client.command()
 async def 시간차감(ctx):
     name = ctx.message.content[6:8]
-    time = ctx.message.content[9:11]
+    time = ctx.message.content[9:13]
     if name == '영훈':
         time_list[0] -= int(time)
         sheet.update_cell(2, 1, time_list[0])
