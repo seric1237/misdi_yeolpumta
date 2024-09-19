@@ -319,29 +319,29 @@ async def 연습정산(ctx):
 
 @client.command()
 async def 출근(ctx):
+    global hoon_time_start
+    global ghi_time_start
+    global kyoung_time_start
+    global miin_time_start
+    global jin_time_start
+    global joon_time_start
     name = ctx.message.content[4:6]
     if name == '영훈' and hoon_time_start == 0:
-        global hoon_time_start
         hoon_time_start = time.time()
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     elif name == '민기' and ghi_time_start == 0:
-        global ghi_time_start
         ghi_time_start = time.time()
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     elif name == '재경' and kyoung_time_start == 0:
-        global kyoung_time_start
         kyoung_time_start = time.time()
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     elif name == '유민' and miin_time_start == 0:
-        global miin_time_start
         miin_time_start = time.time()
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     elif name == '서진' and jin_time_start == 0:
-        global jin_time_start
         jin_time_start = time.time()
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     elif name == '현준' and joon_time_start == 0:
-        global joon_time_start
         joon_time_start = time.time()
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     else:
