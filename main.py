@@ -21,18 +21,6 @@ gc = gspread.authorize(credential)
 spreadsheet_key = os.environ.get("key")
 doc = gc.open_by_key(spreadsheet_key)
 sheet = doc.worksheet("시트1")
-global hoon_time_start
-hoon_time_start = 0
-global ghi_time_start
-ghi_time_start = 0
-global kyoung_time_start
-kyoung_time_start = 0
-global miin_time_start
-miin_time_start = 0
-global jin_time_start
-jin_time_start = 0
-global joon_time_start
-joon_time_start = 0
 client = commands.Bot(command_prefix='/', intents=discord.Intents.all())
 app = Flask('')
 
@@ -79,6 +67,18 @@ async def 초기화(ctx):
             penalty_list = [0, 0, 0, 0, 0, 0]
             global sumtime_list
             sumtime_list = [0, 0, 0, 0, 0, 0]
+            global hoon_time_start
+            hoon_time_start = 0
+            global ghi_time_start
+            ghi_time_start = 0
+            global kyoung_time_start
+            kyoung_time_start = 0
+            global miin_time_start
+            miin_time_start = 0
+            global jin_time_start
+            jin_time_start = 0
+            global joon_time_start
+            joon_time_start = 0
             await ctx.send('```초기화 완료```')
 
         else:
@@ -144,6 +144,18 @@ async def 부팅(ctx):
             penalty_list = [sheet.cell(3, 1).numeric_value, sheet.cell(3, 2).numeric_value, sheet.cell(3, 3).numeric_value, sheet.cell(3, 4).numeric_value, sheet.cell(3, 5).numeric_value, sheet.cell(3, 6).numeric_value]
             global sumtime_list
             sumtime_list = [sheet.cell(4, 1).numeric_value, sheet.cell(4, 2).numeric_value, sheet.cell(4, 3).numeric_value, sheet.cell(4, 4).numeric_value, sheet.cell(4, 5).numeric_value, sheet.cell(4, 6).numeric_value]
+            global hoon_time_start
+            hoon_time_start = 0
+            global ghi_time_start
+            ghi_time_start = 0
+            global kyoung_time_start
+            kyoung_time_start = 0
+            global miin_time_start
+            miin_time_start = 0
+            global jin_time_start
+            jin_time_start = 0
+            global joon_time_start
+            joon_time_start = 0
             await ctx.send('```부팅 완료```')
         else:
             await ctx.send('```이 서버의 관리자가 아닙니다.```')
