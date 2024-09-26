@@ -167,27 +167,27 @@ async def 시간추가(ctx):
     name = ctx.message.content[6:8]
     time = ctx.message.content[9:13]
     if name == '영훈':
-        time_list[0] += int(time)
+        time_list[0] += float(time)
         sheet.update_cell(2, 1, time_list[0])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 추가되어 {}시간 입니다.```'.format(name, time, time_list[0]))
     elif name == '민기':
-        time_list[1] += int(time)
+        time_list[1] += float(time)
         sheet.update_cell(2, 2, time_list[1])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 추가되어 {}시간 입니다.```'.format(name, time, time_list[1]))
     elif name == '재경':
-        time_list[2] += int(time)
+        time_list[2] += float(time)
         sheet.update_cell(2, 3, time_list[2])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 추가되어 {}시간 입니다.```'.format(name, time, time_list[2]))
     elif name == '유민':
-        time_list[3] += int(time)
+        time_list[3] += float(time)
         sheet.update_cell(2, 4, time_list[3])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 추가되어 {}시간 입니다.```'.format(name, time, time_list[3]))
     elif name == '서진':
-        time_list[4] += int(time)
+        time_list[4] += float(time)
         sheet.update_cell(2, 5, time_list[4])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 추가되어 {}시간 입니다.```'.format(name, time, time_list[4]))
     elif name == '현준':
-        time_list[5] += int(time)
+        time_list[5] += float(time)
         sheet.update_cell(2, 6, time_list[5])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 추가되어 {}시간 입니다.```'.format(name, time, time_list[5]))
     else:
@@ -198,27 +198,27 @@ async def 시간차감(ctx):
     name = ctx.message.content[6:8]
     time = ctx.message.content[9:13]
     if name == '영훈':
-        time_list[0] -= int(time)
+        time_list[0] -= float(time)
         sheet.update_cell(2, 1, time_list[0])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 차감되어 {}시간 입니다.```'.format(name, time, time_list[0]))
     elif name == '민기':
-        time_list[1] -= int(time)
+        time_list[1] -= float(time)
         sheet.update_cell(2, 2, time_list[1])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 차감되어 {}시간 입니다.```'.format(name, time, time_list[1]))
     elif name == '재경':
-        time_list[2] -= int(time)
+        time_list[2] -= float(time)
         sheet.update_cell(2, 3, time_list[2])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 차감되어 {}시간 입니다.```'.format(name, time, time_list[2]))
     elif name == '유민':
-        time_list[3] -= int(time)
+        time_list[3] -= float(time)
         sheet.update_cell(2, 4, time_list[3])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 차감되어 {}시간 입니다.```'.format(name, time, time_list[3]))
     elif name == '서진':
-        time_list[4] -= int(time)
+        time_list[4] -= float(time)
         sheet.update_cell(2, 5, time_list[4])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 차감되어 {}시간 입니다.```'.format(name, time, time_list[4]))
     elif name == '현준':
-        time_list[5] -= int(time)
+        time_list[5] -= float(time)
         sheet.update_cell(2, 6, time_list[5])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 차감되어 {}시간 입니다.```'.format(name, time, time_list[5]))
     else:
