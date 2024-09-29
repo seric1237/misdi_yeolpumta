@@ -295,13 +295,13 @@ async def 연습정산(ctx):
         if ctx.message.author.guild_permissions.administrator:
             increase = [0, 0, 0, 0, 0, 0]
             for i in range(6):
-                if time_list[i] < 20:
+                if time_list[i] < 15:
                     increase[i] = penalty_list[i]
-                    penalty_list[i] += (20-time_list[i])*1000
+                    penalty_list[i] += (15-time_list[i])*1000
                     increase[i] = penalty_list[i] - increase[i]
-                elif time_list[i] > 20:
+                elif time_list[i] > 15:
                     increase[i] = penalty_list[i]
-                    penalty_list[i] -= (time_list[i]-20)*1000
+                    penalty_list[i] -= (time_list[i]-15)*1000
                     increase[i] = penalty_list[i] - increase[i]
             sheet.update([penalty_list], 'A3:F3')
             await ctx.send('```영훈/{}시간/이번주 벌금 {}원/총 누적 벌금: {}원\n'
