@@ -8,6 +8,7 @@ import time
 import math
 from flask import Flask
 from threading import Thread
+import decimal
 
 scope = [
     "https://spreadsheets.google.com/feeds",
@@ -145,17 +146,35 @@ async def 부팅(ctx):
             global sumtime_list
             sumtime_list = [sheet.cell(4, 1).numeric_value, sheet.cell(4, 2).numeric_value, sheet.cell(4, 3).numeric_value, sheet.cell(4, 4).numeric_value, sheet.cell(4, 5).numeric_value, sheet.cell(4, 6).numeric_value]
             global hoon_time_start
-            hoon_time_start = 0
+            if sheet.cell(5, 1).numeric_value == None:
+                hoon_time_start = 0
+            else:
+                hoon_time_start = sheet.cell(5, 1).numeric_value
             global ghi_time_start
-            ghi_time_start = 0
+            if sheet.cell(5, 2).numeric_value == None:
+                ghi_time_start = 0
+            else:
+                ghi_time_start = sheet.cell(5, 2).numeric_value
             global kyoung_time_start
-            kyoung_time_start = 0
+            if sheet.cell(5, 3).numeric_value == None:
+                kyoung_time_start = 0
+            else:
+                kyoung_time_start = sheet.cell(5, 3).numeric_value
             global miin_time_start
-            miin_time_start = 0
+            if sheet.cell(5, 4).numeric_value == None:
+                miin_time_start = 0
+            else:
+                miin_time_start = sheet.cell(5, 4).numeric_value
             global jin_time_start
-            jin_time_start = 0
+            if sheet.cell(5, 5).numeric_value == None:
+                jin_time_start = 0
+            else:
+                jin_time_start = sheet.cell(5, 5).numeric_value
             global joon_time_start
-            joon_time_start = 0
+            if sheet.cell(5, 6).numeric_value == None:
+                joon_time_start = 0
+            else:
+                joon_time_start = sheet.cell(5, 6).numeric_value
             await ctx.send('```부팅 완료```')
         else:
             await ctx.send('```이 서버의 관리자가 아닙니다.```')
@@ -167,27 +186,27 @@ async def 시간추가(ctx):
     name = ctx.message.content[6:8]
     time = ctx.message.content[9:13]
     if name == '영훈':
-        time_list[0] += float(time)
+        time_list[0] += decimal(time)
         sheet.update_cell(2, 1, time_list[0])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 추가되어 {}시간 입니다.```'.format(name, time, time_list[0]))
     elif name == '민기':
-        time_list[1] += float(time)
+        time_list[1] += decimal(time)
         sheet.update_cell(2, 2, time_list[1])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 추가되어 {}시간 입니다.```'.format(name, time, time_list[1]))
     elif name == '재경':
-        time_list[2] += float(time)
+        time_list[2] += decimal(time)
         sheet.update_cell(2, 3, time_list[2])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 추가되어 {}시간 입니다.```'.format(name, time, time_list[2]))
     elif name == '유민':
-        time_list[3] += float(time)
+        time_list[3] += decimal(time)
         sheet.update_cell(2, 4, time_list[3])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 추가되어 {}시간 입니다.```'.format(name, time, time_list[3]))
     elif name == '서진':
-        time_list[4] += float(time)
+        time_list[4] += decimal(time)
         sheet.update_cell(2, 5, time_list[4])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 추가되어 {}시간 입니다.```'.format(name, time, time_list[4]))
     elif name == '현준':
-        time_list[5] += float(time)
+        time_list[5] += decimal(time)
         sheet.update_cell(2, 6, time_list[5])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 추가되어 {}시간 입니다.```'.format(name, time, time_list[5]))
     else:
@@ -198,27 +217,27 @@ async def 시간차감(ctx):
     name = ctx.message.content[6:8]
     time = ctx.message.content[9:13]
     if name == '영훈':
-        time_list[0] -= float(time)
+        time_list[0] -= decimal(time)
         sheet.update_cell(2, 1, time_list[0])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 차감되어 {}시간 입니다.```'.format(name, time, time_list[0]))
     elif name == '민기':
-        time_list[1] -= float(time)
+        time_list[1] -= decimal(time)
         sheet.update_cell(2, 2, time_list[1])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 차감되어 {}시간 입니다.```'.format(name, time, time_list[1]))
     elif name == '재경':
-        time_list[2] -= float(time)
+        time_list[2] -= decimal(time)
         sheet.update_cell(2, 3, time_list[2])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 차감되어 {}시간 입니다.```'.format(name, time, time_list[2]))
     elif name == '유민':
-        time_list[3] -= float(time)
+        time_list[3] -= decimal(time)
         sheet.update_cell(2, 4, time_list[3])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 차감되어 {}시간 입니다.```'.format(name, time, time_list[3]))
     elif name == '서진':
-        time_list[4] -= float(time)
+        time_list[4] -= decimal(time)
         sheet.update_cell(2, 5, time_list[4])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 차감되어 {}시간 입니다.```'.format(name, time, time_list[4]))
     elif name == '현준':
-        time_list[5] -= float(time)
+        time_list[5] -= decimal(time)
         sheet.update_cell(2, 6, time_list[5])
         await ctx.send('```현재 {}님의 누계 연습 시간은 {}시간이 차감되어 {}시간 입니다.```'.format(name, time, time_list[5]))
     else:
@@ -328,21 +347,27 @@ async def 출근(ctx):
     name = ctx.message.content[4:6]
     if name == '영훈' and hoon_time_start == 0:
         hoon_time_start = time.time()
+        sheet.update_cell(5, 1, hoon_time_start)
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     elif name == '민기' and ghi_time_start == 0:
         ghi_time_start = time.time()
+        sheet.update_cell(5, 2, ghi_time_start)
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     elif name == '재경' and kyoung_time_start == 0:
         kyoung_time_start = time.time()
+        sheet.update_cell(5, 3, kyoung_time_start)
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     elif name == '유민' and miin_time_start == 0:
         miin_time_start = time.time()
+        sheet.update_cell(5, 4, miin_time_start)
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     elif name == '서진' and jin_time_start == 0:
         jin_time_start = time.time()
+        sheet.update_cell(5, 5, jin_time_start)
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     elif name == '현준' and joon_time_start == 0:
         joon_time_start = time.time()
+        sheet.update_cell(5, 6, jin_time_start)
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     else:
         await ctx.send('```존재하지 않는 사용자이거나 이미 출근한 사용자입니다.```')
@@ -359,49 +384,49 @@ async def 퇴근(ctx):
     if name == '영훈' and not(hoon_time_start == 0):
         global hoon_time_end
         hoon_time_end = time.time()
-        hoon_practice_time = float(math.floor(float(float(hoon_time_end-hoon_time_start)/float(360))))/float(10)
+        hoon_practice_time = decimal(math.floor(decimal(decimal(hoon_time_end-hoon_time_start)/decimal(360))))/decimal(10)
         hoon_time_start = 0
-        time_list[0] += hoon_practice_time
+        time_list[0] += decimal(hoon_practice_time)
         sheet.update_cell(2, 1, time_list[0])
         await ctx.send('```{}님 연습시간 기록이 끝났습니다. 기록된 연습시간은 {}시간으로 금주 연습시간에 반영되었습니다.```'.format(name, hoon_practice_time))
     elif name == '민기' and not(ghi_time_start == 0):
         global ghi_time_end
         ghi_time_end = time.time()
-        ghi_practice_time = float(math.floor(float(float(ghi_time_end-ghi_time_start)/float(360))))/float(10)
+        ghi_practice_time = decimal(math.floor(decimal(decimal(ghi_time_end-ghi_time_start)/decimal(360))))/decimal(10)
         ghi_time_start = 0
-        time_list[1] += ghi_practice_time
+        time_list[1] += decimal(ghi_practice_time)
         sheet.update_cell(2, 2, time_list[1])
         await ctx.send('```{}님 연습시간 기록이 끝났습니다. 기록된 연습시간은 {}시간으로 금주 연습시간에 반영되었습니다.```'.format(name, ghi_practice_time))
     elif name == '재경' and not(kyoung_time_start == 0):
         global kyoung_time_end
         kyoung_time_end = time.time()
-        kyoung_practice_time = float(math.floor(float(float(kyoung_time_end-kyoung_time_start)/float(360))))/float(10)
+        kyoung_practice_time = decimal(math.floor(decimal(decimal(kyoung_time_end-kyoung_time_start)/decimal(360))))/decimal(10)
         kyoung_time_start = 0
-        time_list[2] += kyoung_practice_time
+        time_list[2] += decimal(kyoung_practice_time)
         sheet.update_cell(2, 3, time_list[2])
         await ctx.send('```{}님 연습시간 기록이 끝났습니다. 기록된 연습시간은 {}시간으로 금주 연습시간에 반영되었습니다.```'.format(name, kyoung_practice_time))
     elif name == '유민' and not(miin_time_start == 0):
         global miin_time_end
         miin_time_end = time.time()
-        miin_practice_time = float(math.floor(float(float(miin_time_end-miin_time_start)/float(360))))/float(10)
+        miin_practice_time = decimal(math.floor(decimal(decimal(miin_time_end-miin_time_start)/decimal(360))))/decimal(10)
         miin_time_start = 0
-        time_list[3] += miin_practice_time
+        time_list[3] += decimal(miin_practice_time)
         sheet.update_cell(2, 4, time_list[3])
         await ctx.send('```{}님 연습시간 기록이 끝났습니다. 기록된 연습시간은 {}시간으로 금주 연습시간에 반영되었습니다.```'.format(name, miin_practice_time))
     elif name == '서진' and not(jin_time_start == 0):
         global jin_time_end
         jin_time_end = time.time()
-        jin_practice_time = float(math.floor(float(float(jin_time_end-jin_time_start)/float(360))))/float(10)
+        jin_practice_time = decimal(math.floor(decimal(decimal(jin_time_end-jin_time_start)/decimal(360))))/decimal(10)
         jin_time_start = 0
-        time_list[4] += jin_practice_time
+        time_list[4] += decimal(jin_practice_time)
         sheet.update_cell(2, 5, time_list[4])
         await ctx.send('```{}님 연습시간 기록이 끝났습니다. 기록된 연습시간은 {}시간으로 금주 연습시간에 반영되었습니다.```'.format(name, jin_practice_time))
     elif name == '현준' and not(joon_time_start == 0):
         global joon_time_end
         joon_time_end = time.time()
-        joon_practice_time = float(math.floor(float(float(joon_time_end-joon_time_start)/float(360))))/float(10)
+        joon_practice_time = decimal(math.floor(decimal(decimal(joon_time_end-joon_time_start)/decimal(360))))/decimal(10)
         joon_time_start = 0
-        time_list[5] += joon_practice_time
+        time_list[5] += decimal(joon_practice_time)
         sheet.update_cell(2, 6, time_list[5])
         await ctx.send('```{}님 연습시간 기록이 끝났습니다. 기록된 연습시간은 {}시간으로 금주 연습시간에 반영되었습니다.```'.format(name, joon_practice_time))
     else:
