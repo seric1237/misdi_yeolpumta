@@ -113,7 +113,8 @@ async def 업데이트(ctx):
             global time_list
             time_list = [0, 0, 0, 0, 0, 0]
             global penalty_list
-            penalty_list = [sheet.cell(3, 1).numeric_value, sheet.cell(3, 2).numeric_value, sheet.cell(3, 3).numeric_value, sheet.cell(3, 4).numeric_value, sheet.cell(3, 5).numeric_value, sheet.cell(3, 6).numeric_value]
+            penalty_list = [decimal.Decimal(sheet.cell(3, 1).numeric_value), decimal.Decimal(sheet.cell(3, 2).numeric_value), decimal.Decimal(sheet.cell(3, 3).numeric_value), decimal.Decimal(sheet.cell(3, 4).numeric_value), decimal.Decimal(sheet.cell(3, 5).numeric_value),
+                         decimal.Decimal(sheet.cell(3, 6).numeric_value)]
             await ctx.send('```업데이트 완료```')
 
         else:
@@ -140,41 +141,44 @@ async def 부팅(ctx):
             global sheet
             sheet = doc.worksheet("시트1")
             global time_list
-            time_list = [sheet.cell(2, 1).numeric_value, sheet.cell(2, 2).numeric_value, sheet.cell(2, 3).numeric_value, sheet.cell(2, 4).numeric_value, sheet.cell(2, 5).numeric_value, sheet.cell(2, 6).numeric_value]
+            time_list = [decimal.Decimal(sheet.cell(2, 1).numeric_value), decimal.Decimal(sheet.cell(2, 2).numeric_value), decimal.Decimal(sheet.cell(2, 3).numeric_value), decimal.Decimal(sheet.cell(2, 4).numeric_value), decimal.Decimal(sheet.cell(2, 5).numeric_value),
+                         decimal.Decimal(sheet.cell(2, 6).numeric_value)]
             global penalty_list
-            penalty_list = [sheet.cell(3, 1).numeric_value, sheet.cell(3, 2).numeric_value, sheet.cell(3, 3).numeric_value, sheet.cell(3, 4).numeric_value, sheet.cell(3, 5).numeric_value, sheet.cell(3, 6).numeric_value]
+            penalty_list = [decimal.Decimal(sheet.cell(3, 1).numeric_value), decimal.Decimal(sheet.cell(3, 2).numeric_value), decimal.Decimal(sheet.cell(3, 3).numeric_value), decimal.Decimal(sheet.cell(3, 4).numeric_value), decimal.Decimal(sheet.cell(3, 5).numeric_value),
+                         decimal.Decimal(sheet.cell(3, 6).numeric_value)]
             global sumtime_list
-            sumtime_list = [sheet.cell(4, 1).numeric_value, sheet.cell(4, 2).numeric_value, sheet.cell(4, 3).numeric_value, sheet.cell(4, 4).numeric_value, sheet.cell(4, 5).numeric_value, sheet.cell(4, 6).numeric_value]
+            sumtime_list = [decimal.Decimal(sheet.cell(4, 1).numeric_value), decimal.Decimal(sheet.cell(4, 2).numeric_value), decimal.Decimal(sheet.cell(4, 3).numeric_value), decimal.Decimal(sheet.cell(4, 4).numeric_value), decimal.Decimal(sheet.cell(4, 5).numeric_value),
+                         decimal.Decimal(sheet.cell(4, 6).numeric_value)]
             global hoon_time_start
             if sheet.cell(5, 1).numeric_value == None:
                 hoon_time_start = 0
             else:
-                hoon_time_start = sheet.cell(5, 1).numeric_value
+                hoon_time_start = decimal.Decimal(sheet.cell(5, 1).numeric_value)
             global ghi_time_start
             if sheet.cell(5, 2).numeric_value == None:
                 ghi_time_start = 0
             else:
-                ghi_time_start = sheet.cell(5, 2).numeric_value
+                ghi_time_start = decimal.Decimal(sheet.cell(5, 2).numeric_value)
             global kyoung_time_start
             if sheet.cell(5, 3).numeric_value == None:
                 kyoung_time_start = 0
             else:
-                kyoung_time_start = sheet.cell(5, 3).numeric_value
+                kyoung_time_start = decimal.Decimal(sheet.cell(5, 3).numeric_value)
             global miin_time_start
             if sheet.cell(5, 4).numeric_value == None:
                 miin_time_start = 0
             else:
-                miin_time_start = sheet.cell(5, 4).numeric_value
+                miin_time_start = decimal.Decimal(sheet.cell(5, 4).numeric_value)
             global jin_time_start
             if sheet.cell(5, 5).numeric_value == None:
                 jin_time_start = 0
             else:
-                jin_time_start = sheet.cell(5, 5).numeric_value
+                jin_time_start = decimal.Decimal(sheet.cell(5, 5).numeric_value)
             global joon_time_start
             if sheet.cell(5, 6).numeric_value == None:
                 joon_time_start = 0
             else:
-                joon_time_start = sheet.cell(5, 6).numeric_value
+                joon_time_start = decimal.Decimal(sheet.cell(5, 6).numeric_value)
             await ctx.send('```부팅 완료```')
         else:
             await ctx.send('```이 서버의 관리자가 아닙니다.```')
