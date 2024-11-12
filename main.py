@@ -129,7 +129,6 @@ async def 업데이트(ctx):
     else:
         await ctx.send('```DM으론 불가능합니다.```')
 
-
 @client.command()
 async def 부팅(ctx):
     if ctx.guild:
@@ -149,38 +148,69 @@ async def 부팅(ctx):
             global sheet
             sheet = doc.worksheet("시트1")
 
+            # quantize로 소수점 두 자리까지 설정
+            two_places = decimal.Decimal('0.00')
+
             global time_list
-            time_list = [decimal.Decimal(round(sheet.cell(2, i).numeric_value, 2)) for i in range(1, 7)]
+            time_list = [
+                decimal.Decimal(sheet.cell(2, i).numeric_value).quantize(two_places)
+                for i in range(1, 7)
+            ]
 
             global penalty_list
-            penalty_list = [decimal.Decimal(round(sheet.cell(3, i).numeric_value, 2)) for i in range(1, 7)]
+            penalty_list = [
+                decimal.Decimal(sheet.cell(3, i).numeric_value).quantize(two_places)
+                for i in range(1, 7)
+            ]
 
             global sumtime_list
-            sumtime_list = [decimal.Decimal(round(sheet.cell(4, i).numeric_value, 2)) for i in range(1, 7)]
+            sumtime_list = [
+                decimal.Decimal(sheet.cell(4, i).numeric_value).quantize(two_places)
+                for i in range(1, 7)
+            ]
 
             global hoon_time_start
-            hoon_time_start = decimal.Decimal(sheet.cell(5, 1).numeric_value) if sheet.cell(5, 1).numeric_value else 0
+            hoon_time_start = (
+                decimal.Decimal(sheet.cell(5, 1).numeric_value).quantize(two_places)
+                if sheet.cell(5, 1).numeric_value else decimal.Decimal(0)
+            )
 
             global ghi_time_start
-            ghi_time_start = decimal.Decimal(sheet.cell(5, 2).numeric_value) if sheet.cell(5, 2).numeric_value else 0
+            ghi_time_start = (
+                decimal.Decimal(sheet.cell(5, 2).numeric_value).quantize(two_places)
+                if sheet.cell(5, 2).numeric_value else decimal.Decimal(0)
+            )
 
             global kyoung_time_start
-            kyoung_time_start = decimal.Decimal(sheet.cell(5, 3).numeric_value) if sheet.cell(5, 3).numeric_value else 0
+            kyoung_time_start = (
+                decimal.Decimal(sheet.cell(5, 3).numeric_value).quantize(two_places)
+                if sheet.cell(5, 3).numeric_value else decimal.Decimal(0)
+            )
 
             global miin_time_start
-            miin_time_start = decimal.Decimal(sheet.cell(5, 4).numeric_value) if sheet.cell(5, 4).numeric_value else 0
+            miin_time_start = (
+                decimal.Decimal(sheet.cell(5, 4).numeric_value).quantize(two_places)
+                if sheet.cell(5, 4).numeric_value else decimal.Decimal(0)
+            )
 
             global jin_time_start
-            jin_time_start = decimal.Decimal(sheet.cell(5, 5).numeric_value) if sheet.cell(5, 5).numeric_value else 0
+            jin_time_start = (
+                decimal.Decimal(sheet.cell(5, 5).numeric_value).quantize(two_places)
+                if sheet.cell(5, 5).numeric_value else decimal.Decimal(0)
+            )
 
             global joon_time_start
-            joon_time_start = decimal.Decimal(sheet.cell(5, 6).numeric_value) if sheet.cell(5, 6).numeric_value else 0
+            joon_time_start = (
+                decimal.Decimal(sheet.cell(5, 6).numeric_value).quantize(two_places)
+                if sheet.cell(5, 6).numeric_value else decimal.Decimal(0)
+            )
 
             await ctx.send('```부팅 완료```')
         else:
             await ctx.send('```이 서버의 관리자가 아닙니다.```')
     else:
         await ctx.send('```DM으론 불가능합니다.```')
+
 
 @client.command()
 async def 시간추가(ctx):
@@ -341,12 +371,12 @@ async def 연습정산(ctx):
                 '서진/{}시간/이번주 벌금 {}원/총 누적 벌금: {}원\n'
                 '현준/{}시간/이번주 벌금 {}원/총 누적 벌금: {}원```'
                 .format(
-                    time_list[0], increase[0], penalty_list[0],
-                    time_list[1], increase[1], penalty_list[1],
-                    time_list[2], increase[2], penalty_list[2],
-                    time_list[3], increase[3], penalty_list[3],
-                    time_list[4], increase[4], penalty_list[4],
-                    time_list[5], increase[5], penalty_list[5]
+                    "{:.2f}".format(time_list[0]), "{:.2f}".format(increase[0]), "{:.2f}".format(penalty_list[0]),
+                    "{:.2f}".format(time_list[1]), "{:.2f}".format(increase[1]), "{:.2f}".format(penalty_list[1]),
+                    "{:.2f}".format(time_list[2]), "{:.2f}".format(increase[2]), "{:.2f}".format(penalty_list[2]),
+                    "{:.2f}".format(time_list[3]), "{:.2f}".format(increase[3]), "{:.2f}".format(penalty_list[3]),
+                    "{:.2f}".format(time_list[4]), "{:.2f}".format(increase[4]), "{:.2f}".format(penalty_list[4]),
+                    "{:.2f}".format(time_list[5]), "{:.2f}".format(increase[5]), "{:.2f}".format(penalty_list[5])
                 )
             )
         else:
