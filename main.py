@@ -109,7 +109,7 @@ async def 업데이트(ctx):
             global sumtime_list
             for i in range(6):
                 # 소수점 두 자리까지 반올림하여 업데이트
-                updated_value = round(sheet.cell(2, i + 1).numeric_value + sheet.cell(4, i + 1).numeric_value, 2)
+                updated_value = (sheet.cell(2, i + 1).numeric_value + sheet.cell(4, i + 1).numeric_value).quantize(decimal.Decimal('0.00'))
                 sheet.update_cell(4, i + 1, updated_value)
                 sumtime_list[i] = decimal.Decimal(updated_value)
 
@@ -428,6 +428,7 @@ async def 퇴근(ctx):
 
     if name == '영훈' and hoon_time_start != 0:
         hoon_time_end = time.time()
+        hoon_time_end = decimal.Decimal(hoon_time_end)
         hoon_practice_time = decimal.Decimal((hoon_time_end - hoon_time_start) / 3600).quantize(decimal.Decimal('0.1'))
         hoon_time_start = 0
         time_list[0] += hoon_practice_time
@@ -437,6 +438,7 @@ async def 퇴근(ctx):
             '```{}님 연습시간 기록이 끝났습니다. 기록된 연습시간은 {:.1f}시간으로 금주 연습시간에 반영되었습니다.```'.format(name, hoon_practice_time))
     elif name == '민기' and ghi_time_start != 0:
         ghi_time_end = time.time()
+        ghi_time_end = decimal.Decimal(ghi_time_end)
         ghi_practice_time = decimal.Decimal((ghi_time_end - ghi_time_start) / 3600).quantize(decimal.Decimal('0.1'))
         ghi_time_start = 0
         time_list[1] += ghi_practice_time
@@ -446,6 +448,7 @@ async def 퇴근(ctx):
             '```{}님 연습시간 기록이 끝났습니다. 기록된 연습시간은 {:.1f}시간으로 금주 연습시간에 반영되었습니다.```'.format(name, ghi_practice_time))
     elif name == '재경' and kyoung_time_start != 0:
         kyoung_time_end = time.time()
+        kyoung_time_end = decimal.Decimal(kyoung_time_end)
         kyoung_practice_time = decimal.Decimal((kyoung_time_end - kyoung_time_start) / 3600).quantize(
             decimal.Decimal('0.1'))
         kyoung_time_start = 0
@@ -456,6 +459,7 @@ async def 퇴근(ctx):
             '```{}님 연습시간 기록이 끝났습니다. 기록된 연습시간은 {:.1f}시간으로 금주 연습시간에 반영되었습니다.```'.format(name, kyoung_practice_time))
     elif name == '유민' and miin_time_start != 0:
         miin_time_end = time.time()
+        miin_time_end = decimal.Decimal(miin_time_end)
         miin_practice_time = decimal.Decimal((miin_time_end - miin_time_start) / 3600).quantize(decimal.Decimal('0.1'))
         miin_time_start = 0
         time_list[3] += miin_practice_time
@@ -465,6 +469,7 @@ async def 퇴근(ctx):
             '```{}님 연습시간 기록이 끝났습니다. 기록된 연습시간은 {:.1f}시간으로 금주 연습시간에 반영되었습니다.```'.format(name, miin_practice_time))
     elif name == '서진' and jin_time_start != 0:
         jin_time_end = time.time()
+        jin_time_end = decimal.Decimal(jin_time_end)
         jin_practice_time = decimal.Decimal((jin_time_end - jin_time_start) / 3600).quantize(decimal.Decimal('0.1'))
         jin_time_start = 0
         time_list[4] += jin_practice_time
@@ -474,6 +479,7 @@ async def 퇴근(ctx):
             '```{}님 연습시간 기록이 끝났습니다. 기록된 연습시간은 {:.1f}시간으로 금주 연습시간에 반영되었습니다.```'.format(name, jin_practice_time))
     elif name == '현준' and joon_time_start != 0:
         joon_time_end = time.time()
+        joon_time_end = decimal.Decimal(joon_time_end)
         joon_practice_time = decimal.Decimal((joon_time_end - joon_time_start) / 3600).quantize(decimal.Decimal('0.1'))
         joon_time_start = 0
         time_list[5] += joon_practice_time
