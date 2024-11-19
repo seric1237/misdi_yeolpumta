@@ -396,26 +396,32 @@ async def 출근(ctx):
     name = ctx.message.content[4:6]
     if name == '영훈' and hoon_time_start == 0:
         hoon_time_start = time.time()
+        hoon_time_start = decimal.Decimal(hoon_time_start)
         sheet.update_cell(5, 1, hoon_time_start)
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     elif name == '민기' and ghi_time_start == 0:
         ghi_time_start = time.time()
+        ghi_time_start = decimal.Decimal(ghi_time_start)
         sheet.update_cell(5, 2, ghi_time_start)
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     elif name == '재경' and kyoung_time_start == 0:
         kyoung_time_start = time.time()
+        kyoung_time_start = decimal.Decimal(kyoung_time_start)
         sheet.update_cell(5, 3, kyoung_time_start)
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     elif name == '유민' and miin_time_start == 0:
         miin_time_start = time.time()
+        miin_time_start = decimal.Decimal(miin_time_start)
         sheet.update_cell(5, 4, miin_time_start)
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     elif name == '서진' and jin_time_start == 0:
         jin_time_start = time.time()
+        jin_time_start = decimal.Decimal(jin_time_start)
         sheet.update_cell(5, 5, jin_time_start)
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     elif name == '현준' and joon_time_start == 0:
         joon_time_start = time.time()
+        joon_time_start = decimal.Decimal(joon_time_start)
         sheet.update_cell(5, 6, jin_time_start)
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     else:
