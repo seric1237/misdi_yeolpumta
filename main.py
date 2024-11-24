@@ -109,8 +109,8 @@ async def 업데이트(ctx):
             global sumtime_list
             for i in range(6):
                 # 소수점 두 자리까지 반올림하여 업데이트
-                updated_value = (sheet.cell(2, i + 1).numeric_value + sheet.cell(4, i + 1).numeric_value).quantize(decimal.Decimal('0.00'))
-                sheet.update_cell(4, i + 1, updated_value)
+                updated_value = decimal.Decimal(sheet.cell(2, i + 1).numeric_value + sheet.cell(4, i + 1).numeric_value).quantize(decimal.Decimal('0.00'))
+                sheet.update_cell(4, i+1, "{:.2f}".format(updated_value))
                 sumtime_list[i] = decimal.Decimal(updated_value)
 
             # time_list 초기화
