@@ -351,13 +351,13 @@ async def 연습정산(ctx):
         if ctx.message.author.guild_permissions.administrator:
             increase = [decimal.Decimal(0) for _ in range(6)]
             for i in range(6):
-                if time_list[i] < 15:
+                if time_list[i] < 30:
                     increase[i] = penalty_list[i]
-                    penalty_list[i] += decimal.Decimal((15 - time_list[i]) * 1000)
+                    penalty_list[i] += decimal.Decimal((30 - time_list[i]) * 1000)
                     increase[i] = round(penalty_list[i] - increase[i], 2)
-                elif time_list[i] > 15:
+                elif time_list[i] > 30:
                     increase[i] = penalty_list[i]
-                    penalty_list[i] -= decimal.Decimal((time_list[i] - 15) * 1000)
+                    penalty_list[i] -= decimal.Decimal((time_list[i] - 30) * 1000)
                     increase[i] = round(penalty_list[i] - increase[i], 2)
                 penalty_list[i] = round(penalty_list[i], 2)
 
