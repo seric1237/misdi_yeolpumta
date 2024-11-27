@@ -421,7 +421,7 @@ async def 출근(ctx):
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     elif name == '현준' and joon_time_start == 0:
         joon_time_start = time.time()
-        sheet.update_cell(5, 6, jin_time_start)
+        sheet.update_cell(5, 6, joon_time_start)
         joon_time_start = decimal.Decimal(joon_time_start)
         await ctx.send('```{}님 연습시간 기록이 시작됩니다.```'.format(name))
     else:
